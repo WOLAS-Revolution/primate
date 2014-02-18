@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primate", "Primate.csproj", "{62A81F16-6206-4530-8B07-C30F48B9DD99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primate.Test", "..\Primate.Test\Primate.Test.csproj", "{A6562E8E-5FF1-466D-B29E-3EB2709D368A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62A81F16-6206-4530-8B07-C30F48B9DD99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A81F16-6206-4530-8B07-C30F48B9DD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A81F16-6206-4530-8B07-C30F48B9DD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A81F16-6206-4530-8B07-C30F48B9DD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6562E8E-5FF1-466D-B29E-3EB2709D368A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6562E8E-5FF1-466D-B29E-3EB2709D368A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6562E8E-5FF1-466D-B29E-3EB2709D368A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6562E8E-5FF1-466D-B29E-3EB2709D368A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
