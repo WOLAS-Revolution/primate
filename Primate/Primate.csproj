@@ -41,6 +41,7 @@
       <HintPath>packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONFIG.cs" />
+    <Compile Include="DEFAULT.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="Model\Attachment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

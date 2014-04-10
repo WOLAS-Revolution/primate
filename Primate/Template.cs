@@ -15,7 +15,7 @@ namespace Primate
         /// <param name="name">The name of the template.</param>
         public static string Get(string name)
         {
-            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.MANDRILL_API_KEY);
+            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.ApiKey);
             List<Mandrill.Models.TemplateInfo> templates = api.ListTemplates();
 
             foreach (Mandrill.Models.TemplateInfo template in templates)
@@ -37,7 +37,7 @@ namespace Primate
         /// <param name="args">A list of arguments to place into the template.</param>
         public static string Get(string name, params object[] args)
         {
-            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.MANDRILL_API_KEY);
+            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.ApiKey);
             List<Mandrill.Models.TemplateInfo> templates = api.ListTemplates();
 
             // Get the template code from the list of templates.
@@ -62,7 +62,7 @@ namespace Primate
         /// <param name="args">A list of arguments to place into the template.</param>
         public static string Get(string name, string wrapper, params object[] args)
         {
-            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.MANDRILL_API_KEY);
+            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.ApiKey);
             List<Mandrill.Models.TemplateInfo> templates = api.ListTemplates();
             string wrapHTML = string.Empty;
             string fullHTML = string.Empty;

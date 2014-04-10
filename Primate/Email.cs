@@ -176,7 +176,7 @@ namespace Primate
                                            List<Mandrill.attachment> attachments = null, string replyTo = null,
                                            List<string> tags = null, bool tracking = false, string plain = null)
         {
-            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.MANDRILL_API_KEY);
+            Mandrill.MandrillApi api = new Mandrill.MandrillApi(CONFIG.ApiKey);
 
             // Loop through and add all recipients to the mandrill email.
             if (cc != null)
@@ -190,7 +190,7 @@ namespace Primate
 
             // Add tags if required, as well as project tag.
             if (tags == null) { tags = new List<string>(); };
-            tags.Add(CONFIG.MANDRILL_PROJECT_TAG);
+            tags.Add(CONFIG.ProjectTag);
             if (tags != null)
             {
                 
@@ -216,16 +216,30 @@ namespace Primate
             }
 
             // Set subaccount if required.
-            if (CONFIG.MANDRILL_SUB_ACCOUNT != "")
+            if (CONFIG.SubAccount != null)
             {
-                email.subaccount = CONFIG.MANDRILL_SUB_ACCOUNT;
+                email.subaccount = CONFIG.SubAccount;
+            }
+            else
+            {
+                if (CONFIG.TrapApiKey == CONFIG.ApiKey && CONFIG.TrapAccount != null)
+                {
+                    email.subaccount = CONFIG.TrapAccount;
+                }
             }
 
             // Set tracking options.
             email.track_clicks = tracking;
             email.track_opens = tracking;
 
-            api.SendMessage(email);
+            try
+            {
+                api.SendMessage(email);
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -239,14 +253,14 @@ namespace Primate
             // Add to recipient.
             // Uses trap email if the trap API key is being used.
             List<Mandrill.EmailAddress> recipients = new List<Mandrill.EmailAddress>();
-            recipients.Add(new Mandrill.EmailAddress() { email = (CONFIG.MANDRILL_API_KEY != CONFIG.MANDRILL_TRAP_KEY ? to : CONFIG.MANDRILL_TRAP_EMAIL) });
+            recipients.Add(new Mandrill.EmailAddress() { email = (CONFIG.ApiKey != CONFIG.TrapApiKey ? to : CONFIG.TrapEmail) });
 
             // Add basic options and defaults.
             email.to = recipients;
             email.subject = subject;
             email.html = body;
-            email.from_name = CONFIG.MANDRILL_FROM_NAME;
-            email.from_email = CONFIG.MANDRILL_FROM_EMAIL;
+            email.from_name = CONFIG.FromName;
+            email.from_email = CONFIG.FromEmail;
 
             return email;
         }
@@ -260,7 +274,7 @@ namespace Primate
             List<Mandrill.EmailAddress> recipients = new List<Mandrill.EmailAddress>();
             foreach (string recipient in cc)
             {
-                recipients.Add(new Mandrill.EmailAddress() { email = (CONFIG.MANDRILL_API_KEY != CONFIG.MANDRILL_TRAP_KEY ? recipient : CONFIG.MANDRILL_TRAP_EMAIL) });
+                recipients.Add(new Mandrill.EmailAddress() { email = (CONFIG.ApiKey != CONFIG.TrapApiKey ? recipient : CONFIG.TrapEmail) });
             }
             return recipients;
         }
