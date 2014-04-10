@@ -108,3 +108,12 @@ Generated_Code #added for RIA/Silverlight projects
 _UpgradeReport_Files/
 Backup*/
 UpgradeLog*.XML
+
+Primate/bin/Release/Primate.dll
+Primate/bin/Release/Primate.dll.config
+Primate/bin/Release/Primate.pdb
+Primate/bin/Release/Primate.xml
+Primate/bin/Debug/Primate.dll
+Primate/bin/Debug/Primate.dll.config
+Primate/bin/Debug/Primate.pdb
+Primate/bin/Debug/Primate.xml
